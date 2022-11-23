@@ -1,0 +1,4 @@
+([('App',
+   '/Users/michaelkydd/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Project/dist/App',
+   'EXECUTABLE')],)
