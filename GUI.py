@@ -1,3 +1,4 @@
+import sys
 from tkinter import *
 from tkinter import filedialog
 from tkinter import messagebox
@@ -37,7 +38,7 @@ class GUI():
                             text = "Exit",
                             width = 30,
                             height = 3,
-                            command = exit)
+                            command = self.exit)
 
         self.button_gradefile_directory = Button(self.window,
                                 text = "Select Where you Want the GradeFile",
@@ -57,12 +58,14 @@ class GUI():
         # show the window
         self.main()
 
+    def exit(self):
+        self.window.destroy()
+
     def chooseDirectory(self):
         directory = filedialog.askdirectory()
         
         self.GradeFileDirectory = directory
 
-        print(directory)
 
     def validFiles(self):
         FEH = FileErrorHandling(self.NameFile, self.CourseFile, self.GradeFileDirectory)
