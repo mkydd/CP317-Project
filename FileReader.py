@@ -29,14 +29,20 @@ class FileReader():
                 course_info = data.split(", ")
                 course_info[-1] = course_info[-1].replace("\n", "") # remove newline character from last str object in array
 
+                # check if line in CourseFile contains all 6 fields
                 if (len(course_info) != 6):
-                    continue
+                    print(99)
+                    break
 
-                elif (not course_info[0].isnumeric()):
-                    continue
+                # check if student number in current line is a number
+                if (not course_info[0].isnumeric()):
+                    print(88)
+                    break
                 
-                elif (not course_info[2].isnumeric() or not course_info[3].isnumeric() or not course_info[4].isnumeric() or not course_info[5].isnumeric()):
-                    continue
+                # check if all grades in the current line are a number
+                if ((not course_info[2].isnumeric()) or (not course_info[3].isnumeric()) or (not course_info[4].isnumeric()) or (not course_info[5].isnumeric())):
+                    print("one of the grades is incorrect")
+                    break
 
                 student = Student(name_info[0], name_info[1], course_info[1])
 
